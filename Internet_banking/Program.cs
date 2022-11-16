@@ -1,23 +1,7 @@
-using Internet_banking.Infrastructure.Persistence;
-using Internet_banking.Middlewares;
-using Internet_banking.Core.Application;
-using Microsoft.AspNetCore.Identity;
-using Internet_banking.Infrastucture.Identity.Entities;
-using Internet_banking.Infrastucture.Identity.Seeds;
-using Internet_banking.Infrastructure.Identity;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddSession();
-builder.Services.AddPersistenceInfrastructure(builder.Configuration);
-builder.Services.AddApplicationLayer(builder.Configuration);
-builder.Services.AddIdentityInfrastructure(builder.Configuration);
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-builder.Services.AddTransient<ValidateUserSession, ValidateUserSession>();
-
 
 var app = builder.Build();
 
