@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using AutoMapper;
-using Red_Social.Core.Application.Interfaces.Repositories;
+using Internet_banking.Core.Application.Interfaces.Repositories;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using Internet_banking.Core.Application.ViewModels.User;
