@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Internet_banking.Core.Application.Helpers;
 using Internet_banking.Core.Application.ViewModels.User;
+using Internet_banking.Core.Application.Dtos.Account;
 
 namespace Internet_banking.Middlewares
 {
@@ -15,7 +16,7 @@ namespace Internet_banking.Middlewares
 
         public bool HasUser()
         {
-            UserViewModel userViewModel = _httpContextAccessor.HttpContext.Session.Get<UserViewModel>("user");
+            AuthenticationResponse userViewModel = _httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user");
 
             if (userViewModel == null)
             {

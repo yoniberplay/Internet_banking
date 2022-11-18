@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Internet_banking.Infrastucture.Persistence.Repositories;
 
 namespace Internet_banking.Infrastructure.Persistence
 {
@@ -34,10 +33,6 @@ namespace Internet_banking.Infrastructure.Persistence
 
             #region Repositories
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddTransient<IPostRepository, PostRepository>();
-            services.AddTransient<IUserRepository, UserRepository>();
-            services.AddTransient<ICommentRepository, CommentRepository>();
-            services.AddTransient<IFriendshipRepository, FriendshipRepository>();
             #endregion
         }
     }

@@ -15,10 +15,7 @@ namespace Internet_banking.Core.Application
         {
             #region Services
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddTransient<IPostService, PostService>();
-            services.AddTransient<ICommentService, CommentService>();
             services.AddTransient<IUserService, UserService>();
-            services.AddTransient<IFriendshipService, FriendshipService>();
             #endregion
         }
     }
