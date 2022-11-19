@@ -16,7 +16,6 @@ namespace Internet_banking.Infrastructure.Persistence.Contexts
 
         public DbSet<Post> Post { get; set; }
         public DbSet<Comments> Comments { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<Friendship> Friendship { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
@@ -51,8 +50,6 @@ namespace Internet_banking.Infrastructure.Persistence.Contexts
             modelBuilder.Entity<Comments>()
                 .ToTable("Comments");
 
-            modelBuilder.Entity<User>()
-                .ToTable("Users");
 
             modelBuilder.Entity<Friendship>()
                 .ToTable("Friendship");
@@ -66,8 +63,6 @@ namespace Internet_banking.Infrastructure.Persistence.Contexts
             modelBuilder.Entity<Comments>()
                 .HasKey(c => c.Id);
 
-            modelBuilder.Entity<User>()
-                .HasKey(u => u.Id);
 
             modelBuilder.Entity<Friendship>()
                .HasKey(f => f.Id);
@@ -75,18 +70,6 @@ namespace Internet_banking.Infrastructure.Persistence.Contexts
 
             #region "Relationships"
 
-            modelBuilder.Entity<User>()
-            .HasMany<Post>(user => user.Post)
-            .WithOne(P => P.User)            
-            .HasForeignKey(p => p.UserId)
-            .OnDelete(DeleteBehavior.Cascade);
-
-            modelBuilder.Entity<User>()
-            .HasMany<Friendship>(user => user.Friendship)
-            .WithOne(P => P.User)
-            .HasForeignKey(p => p.IdUser)
-            .HasForeignKey(p => p.IdFriend)
-            .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Post>()
                 .HasMany<Comments>(a => a.Comments)
@@ -129,40 +112,6 @@ namespace Internet_banking.Infrastructure.Persistence.Contexts
             modelBuilder.Entity<Comments>().
             Property(c => c.PostId)
             .IsRequired();
-            #endregion
-
-            #region users
-
-            modelBuilder.Entity<User>().
-                Property(user => user.Name)
-                .IsRequired();
-
-            modelBuilder.Entity<User>().
-                Property(user => user.LastName)
-                .IsRequired();
-
-            modelBuilder.Entity<User>().
-               Property(user => user.Username)
-               .IsRequired();
-
-            modelBuilder.Entity<User>()
-    .HasIndex(user => user.Username)
-      .IsUnique();
-
-            modelBuilder.Entity<User>().
-              Property(user => user.Password)
-              .IsRequired();
-
-            modelBuilder.Entity<User>().
-              Property(user => user.Email)
-              .IsRequired();
-
-            modelBuilder.Entity<User>().
-               Property(user => user.Phone)
-               .IsRequired();
-
-
-
             #endregion
 
             #region Friendship

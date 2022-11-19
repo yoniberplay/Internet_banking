@@ -162,7 +162,7 @@ namespace Internet_banking.Infrastucture.Identity.Services
             {
                 To = user.Email,
                 Body = $"Por favor cambie su password visitando URL {verificationUri}",
-                Subject = "reestablacer password"
+                Subject = "reestablecer password"
             });
 
 
@@ -204,7 +204,7 @@ namespace Internet_banking.Infrastucture.Identity.Services
             if (user == null)
             {
                 response.HasError = true;
-                response.Error = $"No Accounts registered with {request.Email}";
+                response.Error = $"No hay cuentas registradas con {request.Email}";
                 return response;
             }
 
@@ -214,7 +214,7 @@ namespace Internet_banking.Infrastucture.Identity.Services
             if (!result.Succeeded)
             {
                 response.HasError = true;
-                response.Error = $"An error occurred while reset password";
+                response.Error = $"Ha ocurrido un error al intentar cambiar la clave";
                 return response;
             }
 

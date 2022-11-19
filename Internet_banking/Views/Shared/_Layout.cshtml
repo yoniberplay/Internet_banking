@@ -28,13 +28,34 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        @if (User != null)
+                        {                        
+
+                            if(isBasic)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-primary fw-bold" asp-area="" asp-controller="Product" asp-action="Index">Mant. Productos</a>
+                                </li>
+                            }
+
+                               if (isAdmin)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-primary fw-bold" asp-area="" asp-controller="Category" asp-action="Index">Mant. Categorias</a>
+                                </li>
+                            }
+
+                            <li class="nav-item align-content-end">
+                                <a class="nav-link text-primary fw-bold" asp-area="" asp-controller="User" asp-action="LogOut">Cerrar session (@(User.UserName))</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item align-content-end">
+                                <a class="nav-link text-primary fw-bold" asp-area="" asp-controller="User" asp-action="Register">Registrate!</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

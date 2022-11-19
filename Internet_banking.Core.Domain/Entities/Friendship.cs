@@ -12,7 +12,6 @@ namespace Internet_banking.Core.Domain.Entities
 
         public int IdUser { get; set; }
         public int IdFriend { get; set; }
-        public User? User { get; set; }
 
     }
 }
