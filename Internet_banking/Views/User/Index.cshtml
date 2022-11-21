@@ -1,0 +1,50 @@
+﻿@using Internet_banking.Core.Application.ViewModels.User
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="w-100 bg-whitegray d-flex flex-row justify-content-between align-items-center" style="height: 82.4vh">
+    <!-- Form -->
+    <form method="post" asp-controller="User" asp-action="Index" class="w-25 p-2 rounded bg-white mx-auto shadow-sm">
+        <!-- This is the title -->
+        <div class="text-center">
+            <h2>Inicio Sesión</h2>
+            <small>
+                Bienvenido a <span class="text-purple">Banco Current</span> por favor, inicie sesión para continuar.
+            </small>
+        </div>
+
+        <!-- Divider -->
+        <div class="my-3 w-100 d-flex flex-row justify-content-evenly align-content-center divider">
+        
+            @Html.ValidationSummary(false, "", new { @class = "text-purple" })
+            @if (Model.HasError)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert"> 
+                    <p>@Model.Error</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
+        </div>
+
+        <!-- Username field -->
+        <div class="w-100">
+            <label asp-for="Email" class="form-label text-sm-left">Correo:</label>
+            <input asp-for="Email" class="form-control bg-whitegray" />
+        </div>
+
+        <!-- Password field -->
+        <div class="w-100">
+            <label asp-for="Password" class="form-label">Contraseña:</label>
+            <input asp-for="Password" class="form-control bg-whitegray" />
+        </div>
+
+        <!-- Buttons -->
+        <div class="w-100 my-2 mt-3">
+            <button type="submit" class="btn btn-purple w-100"> Login </button>
+        </div>
+    </form>
+
+</div>

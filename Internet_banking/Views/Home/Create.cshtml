@@ -1,0 +1,97 @@
+﻿@*
+    
+*@
+@{
+    ViewData["Title"] = "Create user";
+}
+
+<div class="w-100 bg-whitegray d-flex flex-column justify-content-start align-items-start" style="height: 82.4vh">
+   
+    <!-- this is the title -->
+    <section class="bg-purple w-100 p-2 d-flex flex-row justify-content-between align-items-center">
+        <div>
+            <h2 class="text-white m-0">Dashboard / Manage Users / Create User</h2>
+            <small class="m-0 text-white">This section allows you to create an user</small>
+        </div>
+    </section>
+
+    <section class="w-100 h-100 bg-whitegray d-flex flex-row justify-content-center gap-2 align-items-center">
+        
+       <!-- Form -->
+        <form class="w-75 p-2 rounded bg-white mx-auto shadow-sm d-flex flex-row flex-wrap justify-content-evenly align-items-center">
+
+            <!-- -->
+            <div class="w-75 d-flex flex-row justify-content-center align-items-center">
+                <section class="w-auto p-4 rounded-circle bg-purple text-white d-flex flex-row justify-content-center align-items-center">
+                    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="60" height="60"><path d="M10.5 14.49v.5h.5v-.5h-.5zm-10 0H0v.5h.5v-.5zm7-4.996v.5-.5zm-4 0v-.5.5zM8 3.498a2.499 2.499 0 01-2.5 2.498v1C7.433 6.996 9 5.43 9 3.498H8zM5.5 5.996A2.499 2.499 0 013 3.498H2a3.499 3.499 0 003.5 3.498v-1zM3 3.498A2.499 2.499 0 015.5 1V0A3.499 3.499 0 002 3.498h1zM5.5 1A2.5 2.5 0 018 3.498h1A3.499 3.499 0 005.5 0v1zm5 12.99H.5v1h10v-1zm-9.5.5v-1.996H0v1.996h1zm2.5-4.496h4v-1h-4v1zm6.5 2.5v1.996h1v-1.997h-1zm-2.5-2.5a2.5 2.5 0 012.5 2.5h1a3.5 3.5 0 00-3.5-3.5v1zm-6.5 2.5a2.5 2.5 0 012.5-2.5v-1a3.5 3.5 0 00-3.5 3.5h1zM12 5v5h1V5h-1zm-2 3h5V7h-5v1z" fill="currentColor"></path></svg>
+                </section>
+            </div>
+
+            <!-- Name field -->
+            <div class="w-25 mx-1">
+                <label class="form-label text-sm-left">Name:</label>
+                <input class="form-control bg-whitegray" />
+            </div>
+
+            <!-- Surname field -->
+            <div class="w-25 mx-1">
+                <label class="form-label">Surname:</label>
+                <input class="form-control bg-whitegray" />
+            </div>
+
+            <!-- ID Number field -->
+            <div class="w-25 mx-1">
+                <label class="form-label text-sm-left">ID Number:</label>
+                <input class="form-control bg-whitegray" />
+            </div>
+
+            <!-- Email field -->
+            <div class="w-25 mx-1">
+                <label class="form-label">Email:</label>
+                <input class="form-control bg-whitegray" />
+            </div>
+
+            <!-- Username field -->
+            <div class="w-25 mx-1">
+                <label class="form-label text-sm-left">Username:</label>
+                <input class="form-control bg-whitegray" />
+            </div>
+
+            <!-- Password field -->
+            <div class="w-25 mx-1">
+                <label class="form-label">Password:</label>
+                <input class="form-control bg-whitegray" />
+            </div>
+
+            <!-- Confirm Password field -->
+            <div class="w-25 mx-1">
+                <label class="form-label text-sm-left">Confirm Password:</label>
+                <input class="form-control bg-whitegray" />
+            </div>
+
+            <!--  -->
+            <div class="w-25 mx-1">
+                <label class="form-label">Type User:</label>
+                <select class="form-select">
+                    <option value="0">Select one</option>
+                    <option value="1">Client</option>
+                    <option value="2">Admin</option>
+                </select>
+            </div>
+
+            <!-- Initial Mount field -->
+            <div class="w-25 mx-1">
+                <label class="form-label">Initial Mount:</label>
+                <input class="form-control bg-whitegray" />
+            </div>
+
+            <!-- Buttons -->
+            <div class="w-100 my-2 mt-3 mb-1 d-flex flex-row justify-content-evenly align-items-center">
+                <button class="btn btn-purple w-25"> Create! </button>
+                <a class="btn btn-light w-25" asp-action="ManageUsers" asp-controller="Home">Go back</a>
+            </div>
+        </form> 
+
+    </section>
+
+</div>

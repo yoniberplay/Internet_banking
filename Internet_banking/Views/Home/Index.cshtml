@@ -1,0 +1,153 @@
+﻿@*
+    
+*@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="w-100 bg-whitegray d-flex flex-column justify-content-start align-items-start" style="height: 82.4vh">
+   
+    <!-- this is the title -->
+    <section class="bg-purple w-100 p-2 d-flex flex-row justify-content-between align-items-center">
+        <div>
+            <h1 class="text-white m-0">Dashboard</h1>
+            <small class="m-0 text-white">Welcome Admin</small>
+        </div>
+    </section>
+
+    <section class="w-100 d-flex flex-row justify-content-start gap-2 align-content-center">
+
+        <!-- Transaction -->
+        <div class="d-flex flex-column bg-white shadow-sm border border-right border-black overflow-hidden" style="width: 18rem;">
+            
+            <!-- Title -->
+            <h5 class="fw-bold p-2 text-center">Today's Transactions</h5>
+
+            <!-- the transaction -->
+            <section class="w-100 overflow-auto scrollbar scrollbar-purple" style="height: 58.1vh;">
+                
+                <!-- Example -->
+                
+            </section>
+        
+            <div class="w-100 bg-purple p-2 text-white text-center">
+                There's a quantity of <span>0</span> transactions.
+            </div>
+        </div>
+
+        <!-- Other Container -->
+        <div class="d-flex flex-column bg-whitegray justify-content-start gap-1 align-items-center overflow-hidden" style="width: 74rem;">
+
+            <!-- Fees -->
+            <section class="rounded bg-white mt-2 border-bottom d-flex flex-row justify-content-center gap-1 align-items-center overflow-hidden h-25 w-100">
+            
+                <!-- Title -->
+                <section class="w-25 rounded h-75 d-flex flex-row justify-content-center align-items-center">
+                    <div>
+                        <h4 class="fw-bold text-purple m-0">Fees</h4>
+                        <small class="m-0">
+                            You can see, <span class="text-purple">the quantity of fee or payments,</span> for today, or the start!
+                        </small>
+                    </div>
+                </section>
+            
+                <!-- Today's Fee -->
+                <section class="p-1 w-25 rounded h-75 d-flex flex-row justify-content-center align-items-center">
+                    <div>
+                        <h5 class="d-flex flex-row align-content-center gap-2">
+                            <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="25" height="25"><path d="M3.5 0v5m8-5v5M5 8.5l2 2 3.5-4m-9-4h12a1 1 0 011 1v10a1 1 0 01-1 1h-12a1 1 0 01-1-1v-10a1 1 0 011-1z" stroke="currentColor"></path></svg>
+                            Today's Fee
+                        </h5>
+                        <p class="m-0"> There'are 0 fees.</p>
+                    </div>
+                </section>
+
+                <!-- Total Fees -->
+                <section class="p-1 w-25 rounded h-75 d-flex flex-row justify-content-center align-items-center">
+                    <div>
+                        <h5 class="d-flex flex-row align-content-center gap-2">
+                            <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="25" height="25"><path d="M4 4.5h7m-7 4h1m2 0h1m2 0h1m-7 3h1m2 0h1m2 0h1m-8.5 3h10a1 1 0 001-1v-12a1 1 0 00-1-1h-10a1 1 0 00-1 1v12a1 1 0 001 1z" stroke="currentColor"></path></svg>
+                            Total Fees    
+                        </h5>
+                        <p class="m-0"> In total, There'are 0 fees.</p>
+                    </div>
+                </section>
+
+            </section>
+
+
+            <section class="rounded mt-2 d-flex flex-row justify-content-center gap-4 align-items-center h-50 w-100"> 
+                
+                <!-- Clients -->
+                <section class="rounded bg-white mt-2 p-2 border shadow-sm d-flex flex-column justify-content-center gap-1 align-items-center overflow-hidden h-100 w-50">
+                
+                    <!-- Title -->
+                    <div class="w-100 rounded h-50 d-flex flex-row justify-content-center align-items-center">
+                        <section class="text-center">
+                            <h4 class="fw-bold text-purple m-0">Clients</h4>
+                            <small class="m-0">
+                                You can see, <span class="text-purple">the quantity of clients online or offline</span>.
+                            </small>
+                        </section>
+                    </div>
+
+                    <!-- Divider section -->
+                    <div class="d-flex flex-row justify-content-between align-items-center ">
+
+                        <section class="w-50 mx-2">
+                            <h5 class="d-flex flex-row align-content-center gap-2">
+                                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="25" height="25"><path d="M4.076 6.47l.495.07-.495-.07zm-.01.07l-.495-.07.495.07zm6.858-.07l.495-.07-.495.07zm.01.07l-.495.07.495-.07zM9.5 12.5v.5a.5.5 0 00.5-.5h-.5zm-4 0H5a.5.5 0 00.5.5v-.5zm-.745-3.347l.396-.306-.396.306zm5.49 0l-.396-.306.396.306zM6 15h3v-1H6v1zM3.58 6.4l-.01.07.99.14.01-.07-.99-.14zM7.5 3a3.959 3.959 0 00-3.92 3.4l.99.14A2.959 2.959 0 017.5 4V3zm3.92 3.4A3.959 3.959 0 007.5 3v1a2.96 2.96 0 012.93 2.54l.99-.14zm.01.07l-.01-.07-.99.14.01.07.99-.14zm-.79 2.989c.63-.814.948-1.875.79-2.99l-.99.142a2.951 2.951 0 01-.59 2.236l.79.612zM9 10.9v1.6h1v-1.599H9zm.5 1.1h-4v1h4v-1zm-3.5.5v-1.599H5V12.5h1zM3.57 6.47a3.951 3.951 0 00.79 2.989l.79-.612a2.951 2.951 0 01-.59-2.236l-.99-.142zM6 10.9c0-.823-.438-1.523-.85-2.054l-.79.612c.383.495.64.968.64 1.442h1zm3.85-2.054C9.437 9.378 9 10.077 9 10.9h1c0-.474.257-.947.64-1.442l-.79-.612zM7 0v2h1V0H7zM0 8h2V7H0v1zm13 0h2V7h-2v1zM3.354 3.646l-1.5-1.5-.708.708 1.5 1.5.708-.708zm9 .708l1.5-1.5-.708-.708-1.5 1.5.708.708z" fill="currentColor"></path></svg>
+                                Online
+                            </h5>
+                            <p>There're 0 users</p>
+                        </section>
+
+                        <section class="w-50 mx-2">
+                            <h5 class="d-flex flex-row align-content-center gap-2 text-black">
+                                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="25" height="25"><path d="M4.076 6.47L3.58 6.4l.495.07zm-.01.07l.495.07-.495-.07zm6.858-.07l-.495.07.495-.07zm.01.07l.495-.07-.495.07zM9.5 12.5v.5a.5.5 0 00.5-.5h-.5zm-4 0H5a.5.5 0 00.5.5v-.5zm-.745-3.347l.396-.306-.396.306zm5.49 0l-.396-.306.396.306zM6 15h3v-1H6v1zM3.58 6.4l-.01.07.99.14.01-.07-.99-.14zM7.5 3a3.959 3.959 0 00-3.92 3.4l.99.14A2.959 2.959 0 017.5 4V3zm3.92 3.4A3.959 3.959 0 007.5 3v1a2.96 2.96 0 012.93 2.54l.99-.14zm.01.07l-.01-.07-.99.14.01.07.99-.14zm-.79 2.989c.63-.814.948-1.875.79-2.99l-.99.142a2.951 2.951 0 01-.59 2.236l.79.612zM9 10.9v1.6h1v-1.599H9zm.5 1.1h-4v1h4v-1zm-3.5.5v-1.599H5V12.5h1zM3.57 6.47a3.951 3.951 0 00.79 2.989l.79-.612a2.951 2.951 0 01-.59-2.236l-.99-.142zM6 10.9c0-.823-.438-1.523-.85-2.054l-.79.612c.383.495.64.968.64 1.442h1zm3.85-2.054C9.437 9.378 9 10.077 9 10.9h1c0-.474.257-.947.64-1.442l-.79-.612z" fill="currentColor"></path></svg>
+                                Offline
+                            </h5>
+                            <p>There're 0 users</p>
+                        </section>
+
+                    </div>
+
+                </section>
+
+                <!-- Products -->
+                <section class="bg-purple rounded mt-2 p-2 border shadow-sm d-flex flex-column justify-content-center gap-1 align-items-center overflow-hidden h-100 w-50">
+                
+                    <!-- Title -->
+                    <div class="w-100 rounded h-50 d-flex flex-row justify-content-center align-items-center">
+                        <section class="text-center">
+                            <h4 class="fw-bold text-white m-0">Client's Products</h4>
+                            <small class="m-0 text-opacity-75 text-white">
+                                You can see, <span class="text-white">the quantity of client's products</span> given.
+                            </small>
+                        </section>
+                    </div>
+
+                    <!-- Divider section -->
+                    <div class="d-flex flex-row justify-content-between align-items-center ">
+
+                        <section class="w-100 mx-2">
+                            <h5 class="d-flex flex-row align-content-center gap-2 text-white">
+                                <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="25" height="25"><path d="M.5 5.5h14M2 9.5h6m2 0h3M.5 3.5v8a1 1 0 001 1h12a1 1 0 001-1v-8a1 1 0 00-1-1h-12a1 1 0 00-1 1z" stroke="currentColor"></path></svg>                                
+                                User's Products
+                            </h5>
+                            <p class="text-opacity-75 text-white">There're 0 users's products</p>
+                        </section>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </div>
+    
+        
+
+    </section>
+
+</div>

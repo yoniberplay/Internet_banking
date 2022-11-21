@@ -1,0 +1,82 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Internet_banking.Core.Application.Dtos.Account
+@using Internet_banking.Core.Application.Helpers;
+@inject IHttpContextAccessor httpContextAccessor
+@{
+    var User = httpContextAccessor.HttpContext.Session.Get<AuthenticationResponse>("user");
+    var isAdmin = User != null ? User.Roles.Any(r => r == "Admin") : false;
+    var isBasic = User != null ? User.Roles.Any(r => r == "Basic") : false;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Internet_banking</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Internet_banking.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="User" asp-action="Index">
+                    <img width="200" height="40" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5WMTNVBS63LA9rvPMuCtHehqx8oGNcws70cYIvIEhOqXQtp4QMtFvtQ9cDtuqPc0QOQ&usqp=CAU' alt='' />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        @if (User != null)
+                        {                        
+
+                            if(isBasic)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-primary fw-bold" asp-area="" asp-controller="Product" asp-action="Index">Mant. Productos</a>
+                                </li>
+                            }
+
+                               if (isAdmin)
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-primary fw-bold" asp-area="" asp-controller="Category" asp-action="Index">Mant. Categorias</a>
+                                </li>
+                            }
+
+                            <li class="nav-item align-content-end">
+                                <a class="nav-link text-primary fw-bold" asp-area="" asp-controller="User" asp-action="LogOut">Cerrar session (@(User.UserName))</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item align-content-end">
+                                <a class="nav-link text-primary fw-bold" asp-area="" asp-controller="User" asp-action="Register">Registrate!</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - Internet_banking - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

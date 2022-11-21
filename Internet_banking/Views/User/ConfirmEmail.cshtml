@@ -1,0 +1,13 @@
+﻿@using Internet_banking.Core.Application.ViewModels.User
+@model string
+@{
+    ViewData["Title"] = "Confirm";
+}
+
+<div class="w-100 bg-whitegray d-flex flex-row justify-content-between align-items-center" style="height: 82.4vh">
+    <div class="alert bg-purple alert-dismissible fade show mx-auto" role="alert">
+        <h2 class="text-light">@Model - <a class="btn btn-light" asp-controller="User" asp-action="Index"> Sign in</a></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+
