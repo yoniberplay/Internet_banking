@@ -17,6 +17,7 @@ namespace Internet_banking.Infrastructure.Persistence.Contexts
         public DbSet<Post> Post { get; set; }
         public DbSet<Comments> Comments { get; set; }
         public DbSet<Friendship> Friendship { get; set; }
+        public DbSet<Beneficiarios> Beneficiarios { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
@@ -53,6 +54,9 @@ namespace Internet_banking.Infrastructure.Persistence.Contexts
 
             modelBuilder.Entity<Friendship>()
                 .ToTable("Friendship");
+
+            modelBuilder.Entity<Beneficiarios>()
+                .ToTable("Beneficiarios");
 
             #endregion
 
