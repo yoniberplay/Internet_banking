@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Internet_banking.Core.Application.Interfaces.Repositories
 {
-    public interface IPostRepository : IGenericRepository<Post>
+    public interface ITarjetaCreditoRepository : IGenericRepository<TarjetaCredito>
     {
-        Task<Post> GetBywithRelationship(int id);
     }
 }

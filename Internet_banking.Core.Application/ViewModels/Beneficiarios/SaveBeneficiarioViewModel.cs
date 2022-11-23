@@ -10,7 +10,11 @@ namespace Internet_banking.Core.Application.ViewModels.Beneficiarios
     public class SaveBeneficiarioViewModel
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Nombre requerido")]
+        [DataType(DataType.Text)]
         public string NombreBeneficiario { get; set; }
+        [Required(ErrorMessage = "Apellido Requerido")]
+        [DataType(DataType.Text)]
         public string ApellidoBeneficiarios { get; set; }
         [Required]
         // for numbers that need to start with a zero

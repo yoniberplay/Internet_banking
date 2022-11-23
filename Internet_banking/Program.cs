@@ -41,7 +41,9 @@ using (var scope = app.Services.CreateScope())
         await DefaultSuperAdminUser.SeedAsync(usermanager, rolemanager);
 
     }
-    catch (Exception ex) { }
+    catch (Exception ex) {
+        Console.WriteLine($"Error executing seeds: {ex.Message}");
+    }
 }
 
 
