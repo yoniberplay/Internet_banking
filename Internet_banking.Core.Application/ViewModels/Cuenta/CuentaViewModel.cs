@@ -13,6 +13,7 @@ namespace Internet_banking.Core.Application.ViewModels.Cuenta
         public double Balance { get; set; }
         public string UserId { get; set; }
         public int NumeroCuenta { get; set; }
+        public string Tipo { get; set; }
 
         public List<BeneficiariosViewModel> Beneficiarios { get; set; }
     }

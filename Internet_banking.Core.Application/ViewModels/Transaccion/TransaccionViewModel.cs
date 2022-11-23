@@ -1,18 +1,19 @@
-﻿using Internet_banking.Core.Domain.Common;
+﻿using Internet_banking.Core.Application.ViewModels.BaseCommon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Internet_banking.Core.Domain.Entities
+namespace Internet_banking.Core.Application.ViewModels.Transaccion
 {
-    public class Transacciones : AuditableBaseEntity
+    public class TransaccionViewModel : AuditableBaseViewModel
     {
         public int Origen { get; set; }
         public int Destino { get; set; }
         public double Monto { get; set; }
         public string Tipo { get; set; }
+
 
     }
 }

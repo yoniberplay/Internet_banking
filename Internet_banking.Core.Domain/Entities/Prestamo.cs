@@ -10,9 +10,8 @@ namespace Internet_banking.Core.Domain.Entities
     public class Prestamo : AuditableBaseEntity
     {
         public string UserId { get; set; }
-        public double LoanAmount { get; set; }
-        public double AmountPaid { get; set; }
-        public double Share { get; set; }
-        public bool IsPaid { get; set; }
+        public double MontoPrestamo { get; set; }
+        public double MontoPagado { get; set; }
+        public bool PagadoTotal { get; set; }
     }
 }

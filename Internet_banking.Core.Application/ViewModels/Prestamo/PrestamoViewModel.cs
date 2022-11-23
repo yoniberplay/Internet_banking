@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Internet_banking.Core.Application.ViewModels.Loan
+namespace Internet_banking.Core.Application.ViewModels.Prestamo
 {
     public class PrestamoViewModel : AuditableBaseViewModel
     {

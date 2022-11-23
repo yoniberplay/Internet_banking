@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankingApp.Core.Application.ViewModels.CreditCard
+namespace Internet_banking.Core.Application.ViewModels.TarjetaCredito
 {
-    public class SaveCreditCardViewModel
+    public class SaveTarjetaCreditoViewModel
     {
         [Required(ErrorMessage = "Especifique el id del usuario")]
         [DataType(DataType.Text)]

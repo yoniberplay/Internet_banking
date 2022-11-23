@@ -14,9 +14,10 @@ namespace Internet_banking.Infrastructure.Persistence.Contexts
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options) { }
 
-        public DbSet<Post> Post { get; set; }
-        public DbSet<Comments> Comments { get; set; }
-        public DbSet<Friendship> Friendship { get; set; }
+        public DbSet<Transacciones> Transacciones { get; set; }
+        public DbSet<Cuenta> Cuenta { get; set; }
+        public DbSet<Prestamo> Prestamo { get; set; }
+        public DbSet<TarjetaCredito> TarjetaCredito { get; set; }
         public DbSet<Beneficiarios> Beneficiarios { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
@@ -45,41 +46,48 @@ namespace Internet_banking.Infrastructure.Persistence.Contexts
 
             #region tables
 
-            modelBuilder.Entity<Post>()
-                .ToTable("Post");
+            modelBuilder.Entity<Transacciones>()
+                .ToTable("Transacciones");
 
-            modelBuilder.Entity<Comments>()
-                .ToTable("Comments");
+            modelBuilder.Entity<Cuenta>()
+                .ToTable("Cuenta");
 
-
-            modelBuilder.Entity<Friendship>()
-                .ToTable("Friendship");
+            modelBuilder.Entity<Prestamo>()
+                .ToTable("Prestamo");
 
             modelBuilder.Entity<Beneficiarios>()
                 .ToTable("Beneficiarios");
 
+            modelBuilder.Entity<TarjetaCredito>()
+                .ToTable("TarjetaCredito");
+
             #endregion
 
             #region "primary keys"
-            modelBuilder.Entity<Post>()
+            modelBuilder.Entity<Transacciones>()
                 .HasKey(p => p.Id);
 
-            modelBuilder.Entity<Comments>()
+            modelBuilder.Entity<Cuenta>()
                 .HasKey(c => c.Id);
 
+            modelBuilder.Entity<Prestamo>()
+               .HasKey(f => f.Id);
 
-            modelBuilder.Entity<Friendship>()
+            modelBuilder.Entity<Beneficiarios>()
+                .HasKey(c => c.Id);
+
+            modelBuilder.Entity<TarjetaCredito>()
                .HasKey(f => f.Id);
             #endregion
 
             #region "Relationships"
 
 
-            modelBuilder.Entity<Post>()
-                .HasMany<Comments>(a => a.Comments)
-                .WithOne(c => c.Post)
-                .HasForeignKey(f => f.PostId)
-                .OnDelete(DeleteBehavior.NoAction);
+            //modelBuilder.Entity<Post>()
+            //    .HasMany<Comments>(a => a.Comments)
+            //    .WithOne(c => c.Post)
+            //    .HasForeignKey(f => f.PostId)
+            //    .OnDelete(DeleteBehavior.NoAction);
 
 
 
@@ -88,45 +96,99 @@ namespace Internet_banking.Infrastructure.Persistence.Contexts
 
             #region "Property configurations"
 
-            #region Post
+            #region Transacciones
 
-            modelBuilder.Entity<Post>().
-                Property(p => p.UserId)
+            modelBuilder.Entity<Transacciones>().
+                Property(p => p.Origen)
                 .IsRequired();
 
-            modelBuilder.Entity<Post>().
-               Property(p => p.Text)
-               .IsRequired();
+            modelBuilder.Entity<Transacciones>().
+                Property(p => p.Destino)
+                .IsRequired();
 
-            modelBuilder.Entity<Post>().
-               Property(p => p.Text)
-               .IsRequired();
+            modelBuilder.Entity<Transacciones>().
+                 Property(p => p.Monto)
+                 .IsRequired();
+
+            modelBuilder.Entity<Transacciones>().
+                Property(p => p.Tipo)
+                .IsRequired();
 
             #endregion
 
-            #region Comments
-            modelBuilder.Entity<Comments>().
-              Property(c => c.Text)
+            #region Cuenta
+            modelBuilder.Entity<Cuenta>().
+              Property(c => c.Balance)
               .IsRequired();
 
-            modelBuilder.Entity<Comments>().
+            modelBuilder.Entity<Cuenta>().
              Property(c => c.UserId)
              .IsRequired();
 
-            modelBuilder.Entity<Comments>().
-            Property(c => c.PostId)
+            modelBuilder.Entity<Cuenta>().
+            Property(c => c.NumeroCuenta)
+            .IsRequired();
+
+            modelBuilder.Entity<Cuenta>().
+            Property(c => c.Tipo)
             .IsRequired();
             #endregion
 
-            #region Friendship
+            #region Prestamo
 
-            modelBuilder.Entity<Friendship>().
-              Property(f => f.IdUser)
+            modelBuilder.Entity<Prestamo>().
+              Property(f => f.UserId)
               .IsRequired();
 
-            modelBuilder.Entity<Friendship>().
-            Property(f => f.IdFriend)
+            modelBuilder.Entity<Prestamo>().
+            Property(f => f.MontoPrestamo)
             .IsRequired();
+
+            modelBuilder.Entity<Prestamo>().
+            Property(f => f.MontoPagado)
+            .IsRequired();
+
+            modelBuilder.Entity<Prestamo>().
+            Property(f => f.PagadoTotal)
+            .IsRequired();
+            #endregion
+
+            #region Beneficiarios
+
+            modelBuilder.Entity<Beneficiarios>().
+              Property(f => f.NombreBeneficiario)
+              .IsRequired();
+
+            modelBuilder.Entity<Beneficiarios>().
+            Property(f => f.ApellidoBeneficiarios)
+            .IsRequired();
+
+            modelBuilder.Entity<Beneficiarios>().
+            Property(f => f.NumeroCuenta)
+            .IsRequired();
+            #endregion
+
+            #region TarjetaCredito
+
+            modelBuilder.Entity<TarjetaCredito>().
+              Property(f => f.UserId)
+              .IsRequired();
+
+            modelBuilder.Entity<TarjetaCredito>().
+            Property(f => f.CreditDisponible)
+            .IsRequired();
+
+            modelBuilder.Entity<TarjetaCredito>().
+            Property(f => f.Debito)
+            .IsRequired();
+
+            modelBuilder.Entity<TarjetaCredito>().
+           Property(f => f.Limite)
+           .IsRequired();
+
+            modelBuilder.Entity<TarjetaCredito>().
+           Property(f => f.Tipo)
+           .IsRequired();
             #endregion
 
             #endregion

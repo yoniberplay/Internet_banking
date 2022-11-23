@@ -10,8 +10,10 @@ namespace Internet_banking.Core.Domain.Entities
     public class TarjetaCredito : AuditableBaseEntity
     {
         public string UserId { get; set; }
-        public double Credit { get; set; }
-        public double Debit { get; set; }
-        public double Limit { get; set; }
+        public double CreditDisponible { get; set; }
+        public double Debito { get; set; }
+        public double Limite { get; set; }
+        public string Tipo { get; set; }
+
     }
 }

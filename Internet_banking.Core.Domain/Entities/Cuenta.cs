@@ -11,7 +11,8 @@ namespace Internet_banking.Core.Domain.Entities
     {
         public double Balance { get; set; } = 0.00;
         public string UserId { get; set; }
-        public bool IsPrincipal { get; set; }
+        public int NumeroCuenta { get; set; }
+        public string Tipo { get; set; }
 
         //Navigation Property
         public ICollection<Beneficiarios> beneficiarios { get; set; }
