@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Internet_banking.Core.Domain.Entities
 {
-    public  class Friendship : AuditableBaseEntity
+    public class TarjetaCredito : AuditableBaseEntity
     {
-
-        public int IdUser { get; set; }
-        public int IdFriend { get; set; }
-
+        public string UserId { get; set; }
+        public double Credit { get; set; }
+        public double Debit { get; set; }
+        public double Limit { get; set; }
     }
 }
