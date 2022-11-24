@@ -29,6 +29,17 @@ namespace Internet_banking.Controllers
 
         }
 
+        public async Task<IActionResult> Desactivar(string id)
+        {
+            await _userService.DesactiveUser(id);
+            return RedirectToRoute(new { controller = "AdmUsers", action = "Index" });
+        }
+        public async Task<IActionResult> Active(string id)
+        {
+            await _userService.ActiveUser(id);
+            return RedirectToRoute(new { controller = "AdmUsers", action = "Index" });
+        }
+
         public IActionResult Register()
         {
             return View(new SaveUserViewModel());

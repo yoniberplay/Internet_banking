@@ -25,49 +25,49 @@
 
         <div class="w-25 mx-1">                
             <label asp-for="FirstName" class="form-label text-sm-left">Nombre: </label>                
-            <input asp-for="FirstName" class="form-control bg-whitegray" />
+            <input asp-for="FirstName" class="form-control bg-whitegray" required/>
             <span asp-validation-for="FirstName" class="text-purple"></span>
         </div>
                          
         <div class="w-25 mx-1">
             <label asp-for="LastName" class="form-label text-sm-left">Apellido: </label>
-            <input asp-for="LastName" class="form-control bg-whitegray" />
+            <input asp-for="LastName" class="form-control bg-whitegray" required/>
             <span asp-validation-for="LastName" class="text-purple"></span>
         </div>
                
         <div class="w-25 mx-1">                
             <label asp-for="Username" class="form-label text-sm-left">Nombre de usuario: </label>
-            <input asp-for="Username" class="form-control bg-whitegray" />
+            <input asp-for="Username" class="form-control bg-whitegray" required/>
             <span asp-validation-for="Username" class="text-purple"></span>
         </div>
 
         <div class="w-25 mx-1">
             <label asp-for="Password" class="form-label text-sm-left">Contraseña: </label>
-            <input asp-for="Password" class="form-control bg-whitegray" />
+            <input asp-for="Password" class="form-control bg-whitegray" required />
             <span asp-validation-for="Password" class="text-purple"></span>
         </div>
 
         <div class="w-25 mx-1">
             <label asp-for="ConfirmPassword" class="form-label text-sm-left">Confirmar contraseña: </label>
-            <input asp-for="ConfirmPassword" class="form-control bg-whitegray" />
+            <input asp-for="ConfirmPassword" class="form-control bg-whitegray" required />
             <span asp-validation-for="ConfirmPassword" class="text-purple"></span>
         </div>
                 
         <div class="w-25 mx-1">
             <label asp-for="Phone" class="form-label text-sm-left">Telefono: </label>
-            <input asp-for="Phone" class="form-control bg-whitegray" />
+            <input asp-for="Phone" class="form-control bg-whitegray" required/>
             <span asp-validation-for="Phone" class="text-purple"></span>
         </div>
 
         <div class="w-25 mx-1">
             <label asp-for="Email" class="form-label text-sm-left">Correo: </label>
-            <input asp-for="Email" class="form-control bg-whitegray" />
+            <input asp-for="Email" class="form-control bg-whitegray" required />
             <span asp-validation-for="Email" class="text-purple"></span>
         </div>
 
         <div class="w-25 mx-1">
             <label class="form-label">Tipo Usuario:</label>
-            <select class="form-select">
+            <select class="form-select" required>
                 <option value="0">Seleccione #1</option>
                 <option value="1">Cliente</option>
                 <option value="2">Administrador</option>
@@ -77,7 +77,7 @@
         <!-- Initial Mount field -->
         <div class="w-25 mx-1">
             <label class="form-label">Monto Inicial</label>
-            <input class="form-control bg-whitegray" />
+            <input type="number" class="form-control bg-whitegray" required/>
         </div>
        
 

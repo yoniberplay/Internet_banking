@@ -61,16 +61,16 @@
                                   </svg>
                                   Editar
                               </a>
-                              <button class="w-50 btn btn-purple d-flex flex-row justify-content-evenly align-items-center" data-toggle="modal" data-target="#exampleModal">
+                              <a asp-controller="AdmUsers" asp-action="Activar" asp-route-id="@item.Id" class="w-50 mx-2 btn btn-success d-flex flex-row justify-content-evenly align-items-center">
                                   <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
                                       <path d="M7.5 14.5A7 7 0 013.17 2M7.5.5A7 7 0 0111.83 13m-.33-3v3.5H15M0 1.5h3.5V5" stroke="currentColor"></path>
                                   </svg>
-                                  Cambiar
-                              </button>
-                              <button class="w-50 mx-2 btn btn-danger d-flex flex-row justify-content-evenly align-items-center">
+                                  Activar
+                               </a>
+                              <a asp-controller="AdmUsers" asp-action="Desactivar" asp-route-id="@item.Id" class="w-50 mx-2 btn btn-danger d-flex flex-row justify-content-evenly align-items-center">
                                   <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M4.5 3V1.5a1 1 0 011-1h4a1 1 0 011 1V3M0 3.5h15m-13.5 0v10a1 1 0 001 1h10a1 1 0 001-1v-10M7.5 7v5m-3-3v3m6-3v3" stroke="currentColor"></path></svg>
-                                  Eliminar
-                              </button>
+                                  Desactivar
+                               </a>
                           </div>
                       </td>
                       

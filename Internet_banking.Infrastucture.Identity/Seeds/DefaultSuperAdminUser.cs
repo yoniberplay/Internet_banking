@@ -18,8 +18,10 @@ namespace Internet_banking.Infrastucture.Identity.Seeds
             defaultUser.LastName = "root";
             defaultUser.UserName = "root";
             defaultUser.Email = "superadmin@itla.edu.do";
+            defaultUser.Cedula = "99999999999";
             defaultUser.EmailConfirmed = true;
             defaultUser.PhoneNumberConfirmed = true;
+            defaultUser.PhoneNumber = "8092201111";
 
             if (userManager.Users.All(u => u.Id != defaultUser.Id))
             {

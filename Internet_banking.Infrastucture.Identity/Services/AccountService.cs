@@ -141,6 +141,27 @@ namespace Internet_banking.Infrastucture.Identity.Services
             }
         }
 
+        public async Task DesactiveUser(string id)
+        {
+            ApplicationUser user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                user.EmailConfirmed = false;
+                await _userManager.UpdateAsync(user);
+            }
+
+        }
+
+        public async Task ActiveUser(string id)
+        {
+            ApplicationUser user = await _userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                user.EmailConfirmed = true;
+                await _userManager.UpdateAsync(user);
+            }
+        }
+
         public async Task<ForgotPasswordResponse> ForgotPasswordAsync(ForgotPasswordRequest request, string origin)
         {
             ForgotPasswordResponse response = new()

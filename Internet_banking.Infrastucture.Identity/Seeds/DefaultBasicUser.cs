@@ -18,6 +18,8 @@ namespace Internet_banking.Infrastucture.Identity.Seeds
             defaultUser.LastName = "ENCARNACION";
             defaultUser.UserName = "yoniberplay";
             defaultUser.Email = "20211442@itla.edu.do";
+            defaultUser.Cedula = "4024512565";
+            defaultUser.PhoneNumber = "8299884791";
             defaultUser.EmailConfirmed = true;
             defaultUser.PhoneNumberConfirmed = true;
 

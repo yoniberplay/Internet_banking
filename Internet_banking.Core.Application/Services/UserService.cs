@@ -35,6 +35,16 @@ namespace Internet_banking.Core.Application.Services
             AuthenticationResponse userResponse = await _accountService.AuthenticateAsync(loginRequest);
             return userResponse;
         }
+
+        public async Task DesactiveUser(string id)
+        {
+            await _accountService.DesactiveUser(id);
+        }
+        public async Task ActiveUser(string id)
+        {
+            await _accountService.ActiveUser(id);
+        }
+
         public async Task SignOutAsync()
         {
             await _accountService.SignOutAsync();
