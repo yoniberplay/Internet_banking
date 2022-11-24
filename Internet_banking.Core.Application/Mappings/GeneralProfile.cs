@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Internet_banking.Core.Application.Dtos.Account;
+using Internet_banking.Core.Application.ViewModels.Cuenta;
 
 namespace Internet_banking.Core.Application.Mappings
 {
@@ -92,6 +93,16 @@ namespace Internet_banking.Core.Application.Mappings
             //   .ForMember(dest => dest.LastModifiedBy, opt => opt.Ignore());
             //#endregion
 
+            #region Cuenta
+            CreateMap<Cuenta, SaveCuentaViewModel>()
+                .ForMember(cuenta => cuenta.IsPrincipal, opt => opt.Ignore())
+                .ReverseMap()
+               .ForMember(dest => dest.Created, opt => opt.Ignore())
+               .ForMember(dest => dest.CreatedBy, opt => opt.Ignore())
+               .ForMember(dest => dest.LastModified, opt => opt.Ignore())
+               .ForMember(dest => dest.LastModifiedBy, opt => opt.Ignore())
+               .ForMember(dest => dest.beneficiarios, opt => opt.Ignore());
+            #endregion
 
         }
     }

@@ -14,5 +14,6 @@ namespace Internet_banking.Core.Application.ViewModels.PagoExpreso
         public int Cuenta { get; set; }
         public int BeneficiarioId { get; set; }
         public BeneficiariosViewModel Beneficiarios { get; set; }
+
     }
 }
