@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 namespace Internet_banking.Core.Application.ViewModels.User
 {
     public class SaveUserViewModel
-    {   
+    {
+        public string Id { get; set; }
+
         [Required(ErrorMessage = "Debe colocar el nombre")]
         [DataType(DataType.Text)]
         public string FirstName { get; set; }
@@ -16,6 +18,10 @@ namespace Internet_banking.Core.Application.ViewModels.User
         [Required(ErrorMessage = "Debe colocar el apellido")]
         [DataType(DataType.Text)]
         public string LastName { get; set; }
+
+        [Required(ErrorMessage = "Debe colocar la cedula")]
+        [DataType(DataType.Text)]
+        public String Cedula { get; set; }
 
         [Required(ErrorMessage = "Debe colocar la Cedula")]
         [DataType(DataType.Text)]

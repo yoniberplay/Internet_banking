@@ -1,5 +1,5 @@
 ﻿@using Internet_banking.Core.Application.ViewModels.User
-@model string
+
 @{
     ViewData["Title"] = "Administrador de usuarios";
     var lista = ViewBag.listausuarios;
@@ -14,7 +14,7 @@
             <small class="m-0 text-white">Esta sección es para manejar usuarios</small>
         </div>
 
-        <a asp-controller="Home" asp-action="Create" class="btn btn-light">
+        <a asp-controller="AdmUsers" asp-action="Register" class="btn btn-light">
             Añadir nuevo usuario
         </a>
     </section>
@@ -24,34 +24,38 @@
         <!-- Reading the users -->
         @if(lista != null)
         {
+           
+
+
             <div class="w-75 h-75 table-responsive bg-white rounded">
                 <table class="table table">
                   <thead>
                     <tr class="text-center">
-                      <th scope="col">#</th>
                       <th scope="col">Nombre</th>
                       <th scope="col">Apellido</th>
-                      <th scope="col">Cedula</th>
+                      <th scope="col">Telefono</th>
                       <th scope="col">Nombre Usuario</th>
                       <th scope="col">Rol</th>
-                      <th scope="col">Username</th>
                       <th scope="col">¿Está activo?</th>
                       <th scope="col">Acción </th>
                     </tr>
                   </thead>
                   <tbody>
+                      @foreach (UserViewModel item in lista){
                     <tr class="align-middle text-center">
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>402-3190715-1</td>
-                      <td>mark4</td>
+                      <td>@item.FirstName</td>
+                      <td>@item.LastName</td>
+                      <td>@item.PhoneNumber</td>
+                      <td>@item.UserName</td>
                       <td>Cliente</td>
-                      <td>mark4</td>
-                      <td>No Activo</td>
+                      <td>@item.EmailConfirmed</td>
+                       @if (item.EmailConfirmed){
+                           <td>Desactivar  </td>
+                      }else {  <td>Activar </td> }
+                      
                       <td> 
                           <div class="w-full d-flex flex-row justify-content-between align-items-center">
-                              <a asp-controller="Home" asp-action="Update" class="mx-2 w-50 btn btn-purple d-flex flex-row justify-content-evenly align-items-center">
+                              <a asp-controller="AdmUsers" asp-action="Update" asp-route-id="@item.Id" class="mx-2 w-50 btn btn-purple d-flex flex-row justify-content-evenly align-items-center">
                                   <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
                                       <path d="M.5 9.5l-.354-.354L0 9.293V9.5h.5zm9-9l.354-.354a.5.5 0 00-.708 0L9.5.5zm5 5l.354.354a.5.5 0 000-.708L14.5 5.5zm-9 9v.5h.207l.147-.146L5.5 14.5zm-5 0H0a.5.5 0 00.5.5v-.5zm.354-4.646l9-9-.708-.708-9 9 .708.708zm8.292-9l5 5 .708-.708-5-5-.708.708zm5 4.292l-9 9 .708.708 9-9-.708-.708zM5.5 14h-5v1h5v-1zm-4.5.5v-5H0v5h1zM6.146 3.854l5 5 .708-.708-5-5-.708.708zM8 15h7v-1H8v1z" fill="currentColor"></path>
                                   </svg>
@@ -69,8 +73,11 @@
                               </button>
                           </div>
                       </td>
+                      
                     </tr>
+                    }
                   </tbody>
+                  
                 </table>
             </div>
         }

@@ -24,6 +24,11 @@ namespace Internet_banking.Core.Application.Services
             _mapper =  mapper;
         }
 
+        public async Task<SaveUserViewModel> UpdateUserAsync(SaveUserViewModel svm)
+        {
+            return await _accountService.UpdateUserAsync(svm);
+        }
+
         public async Task<AuthenticationResponse> LoginAsync(LoginViewModel vm)
         {
             AuthenticationRequest loginRequest = _mapper.Map<AuthenticationRequest>(vm);
@@ -56,6 +61,16 @@ namespace Internet_banking.Core.Application.Services
         {
             ResetPasswordRequest resetRequest = _mapper.Map<ResetPasswordRequest>(vm);
             return await _accountService.ResetPasswordAsync(resetRequest);
+        }
+
+        public async Task<List<UserViewModel>> GetAllUser()
+        {
+            return await _accountService.GetAllUserAsync();
+        }
+
+        public async Task<SaveUserViewModel> FindById(string Id)
+        {
+            return await _accountService.GetUser(Id);
         }
     }
 }

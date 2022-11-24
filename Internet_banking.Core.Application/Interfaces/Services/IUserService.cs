@@ -13,5 +13,8 @@ namespace Internet_banking.Core.Application.Interfaces.Services
         Task<RegisterResponse> RegisterAsync(SaveUserViewModel vm, string origin);
         Task<ResetPasswordResponse> ResetPasswordAsync(ResetPasswordViewModel vm);
         Task SignOutAsync();
+        Task<List<UserViewModel>> GetAllUser();
+        Task<SaveUserViewModel> FindById(String Id);
+        Task<SaveUserViewModel> UpdateUserAsync(SaveUserViewModel svm);
     }
 }

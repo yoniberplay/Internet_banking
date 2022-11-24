@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using WebApp.Internet_banking.Middlewares;
+﻿using WebApp.Internet_banking.Middlewares;
 using Internet_banking.Core.Application.ViewModels.User;
 using Internet_banking.Core.Application.Dtos.Account;
-using Internet_banking.Core.Application.Helpers;
-using Microsoft.AspNetCore.Authorization;
 using Internet_banking.Core.Application.Interfaces.Services;
+using Internet_banking.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace Internet_banking.Controllers
 {
@@ -12,26 +13,27 @@ namespace Internet_banking.Controllers
     public class AdmUsersController : Controller
     {
         private readonly IUserService _userService;
+        private readonly ILogger<AdmUsersController> _logger;
 
-        public AdmUsersController(IUserService userService)
+        public AdmUsersController(IUserService userService, ILogger<AdmUsersController> logger)
         {
             _userService = userService;
+            _logger = logger;
         }
 
-        [ServiceFilter(typeof(LoginAuthorize))]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ViewBag.listausuarios = 555555;
+            ViewBag.listausuarios = await _userService.GetAllUser();
+
             return View();
+
         }
 
-        [ServiceFilter(typeof(LoginAuthorize))]
         public IActionResult Register()
         {
             return View(new SaveUserViewModel());
         }
 
-        [ServiceFilter(typeof(LoginAuthorize))]
         [HttpPost]
         public async Task<IActionResult> Register(SaveUserViewModel vm)
         {
@@ -47,7 +49,7 @@ namespace Internet_banking.Controllers
                 vm.Error = response.Error;
                 return View(vm);
             }
-            return RedirectToRoute(new { controller = "User", action = "Index" });
+            return RedirectToRoute(new { controller = "AdmUsers", action = "Index" });
         }
 
         public IActionResult AccessDenied()
@@ -56,16 +58,42 @@ namespace Internet_banking.Controllers
         }
 
         //added
-        public IActionResult Update()
+        public async Task<IActionResult> Update(String Id)
         {
-            return View();
+            SaveUserViewModel sv = await _userService.FindById(Id);
+
+            return View(sv);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(SaveUserViewModel svm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(svm);
+            }
+
+            SaveUserViewModel updateStatus = await _userService.UpdateUserAsync(svm);
+            if (updateStatus.HasError)
+            {
+                return View(svm);
+            }
+            return RedirectToRoute(new { controller = "AdmUsers", action = "Index" });
+        }
+
+
+
 
         public IActionResult UserProduts()
         {
             return View();
         }
 
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
 
     }
 }

@@ -22,7 +22,7 @@
         @if (isAdmin)
         {
                  <!-- Form -->
-            <form class="w-75 p-2 rounded bg-white mx-auto shadow-sm d-flex flex-row flex-wrap justify-content-evenly align-items-center">
+            <form method="POST" class="w-75 p-2 rounded bg-white mx-auto shadow-sm d-flex flex-row flex-wrap justify-content-evenly align-items-center" asp-controller="AdminClient" asp-action="Update">
 
                 <!-- -->
                 <div class="w-75 d-flex flex-row justify-content-center align-items-center">
@@ -52,7 +52,7 @@
                 <!-- Email field -->
                 <div class="w-25 mx-1">
                     <label asp-for="Email" class="form-label">Correo:</label>
-                    <input asp-for="NumberId" class="form-control bg-whitegray" />
+                    <input asp-for="Email" class="form-control bg-whitegray" />
                 </div>
 
                 <!-- Username field -->
@@ -75,7 +75,7 @@
 
                 <!-- Buttons -->
                 <div class="w-100 my-2 mt-3 mb-1 d-flex flex-row justify-content-evenly align-items-center">
-                    <button class="btn btn-purple w-25"> ¡Editar! </button>
+                    <button type="submit" class="btn btn-purple w-25"> ¡Editar! </button>
                     <a class="btn btn-light w-25" asp-action="ManageUsers" asp-controller="AdmUser">Volver</a>
                 </div>
             </form> 
@@ -83,7 +83,7 @@
         else
         {
             <!-- Form -->
-            <form class="w-75 p-2 rounded bg-white mx-auto shadow-sm d-flex flex-row flex-wrap justify-content-evenly align-items-center">
+            <form method="POST" class="w-75 p-2 rounded bg-white mx-auto shadow-sm d-flex flex-row flex-wrap justify-content-evenly align-items-center" asp-controller="AdminClient" asp-action="Update">
 
                 <!-- -->
                 <div class="w-75 d-flex flex-row justify-content-center align-items-center">
@@ -113,7 +113,7 @@
                 <!-- Email field -->
                 <div class="w-25 mx-1">
                     <label asp-for="Email" class="form-label">Correo:</label>
-                    <input asp-for="NumberId" class="form-control bg-whitegray" />
+                    <input asp-for="Email" class="form-control bg-whitegray" />
                 </div>
 
                 <!-- Username field -->
@@ -152,8 +152,8 @@
 
                 <!-- Buttons -->
                 <div class="w-100 my-2 mt-3 mb-1 d-flex flex-row justify-content-evenly align-items-center">
-                    <button class="btn btn-purple w-25"> ¡Editar! </button>
-                    <a class="btn btn-light w-25" asp-action="ManageUsers" asp-controller="AdmUser">Volver</a>
+                    <button type="submit" class="btn btn-purple w-25"> ¡Editar! </button>
+                    <a class="btn btn-light w-25" asp-action="ManageUsers" asp-controller="Index">Volver</a>
                 </div>
             </form> 
         }

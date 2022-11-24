@@ -12,5 +12,6 @@ namespace Internet_banking.Infrastucture.Identity.Entities
 
         public String FirstName { get; set; }
         public String LastName { get; set; }
+        public String Cedula { get; set; }
     }
 }
