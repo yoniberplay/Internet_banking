@@ -1,0 +1,25 @@
+﻿@using Internet_banking.Core.Application.ViewModels.PagoExpreso;
+@model SavePagoExpresoViewModelViewModel;
+@{
+    ViewData["Title"] = "Confirmar Pago";
+}
+
+@*Aqui debe ir la confirmacion de la que habla el doc. Si el usuario es y nombre.*@
+
+<div class="w-100 bg-whitegray d-flex flex-row justify-content-between align-items-center" style="height: 82.4vh">
+    <div class="alert bg-purple alert-dismissible fade show mx-auto" role="alert">
+        <form method="POST" asp-controller="ClientUsers" asp-action="ExpressFee">
+            <h2 class="text-light">@Model</h2>
+            <!--
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            -->
+
+            <!-- Buttons -->
+            <div class="w-100 my-2 mt-3 mb-1 d-flex flex-row justify-content-evenly align-items-center">
+                <button type="submit" class="btn btn-purple w-25"> ¡Confirmar! </button>
+                <a asp-controller="ClientUsers" asp-action="ExpressFee" class="btn btn-light w-25">Volver</a>
+            </div>
+        </form>
+    </div>
+</div>
+

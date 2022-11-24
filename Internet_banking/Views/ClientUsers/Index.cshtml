@@ -1,0 +1,86 @@
+﻿@*Strong Typed*@
+@using Internet_banking.Core.Application.ViewModels.Beneficiarios;
+@model List<BeneficiariosViewModel>
+@{
+}
+
+<div class="w-100 bg-whitegray d-flex flex-column justify-content-start align-items-start" style="height: 82.4vh">
+   
+        <section class="bg-purple w-100 p-2 d-flex flex-row justify-content-between align-items-center">
+            <div>
+                <h2 class="text-white m-0">Beneficiario</h2>
+                <small class="m-0 text-white">En esta sección, usted podrá manejar sus beneficiarios</small>
+            </div>
+
+            <button class="btn btn-light" asp-action="UserProducts" asp-controller="Home">Add Recipient</button>
+        </section>
+
+        <div class="w-50 h-75 table-responsive bg-white rounded m-auto">
+            <table class="table table">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">#</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Apellido</th>
+                  <th scope="col">Número de cuenta</th>
+                  <th scope="col">Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach(var item in @Model)
+                {
+                    <tr class="align-middle text-center">
+                      <th scope="row">@item.Id</th>
+                      <td>@item.NombreBeneficiario</td>
+                      <td>@item.ApellidoBeneficiarios</td>
+                      <td>@item.NumeroCuenta</td>
+                      <td>
+                        <div class="w-full d-flex flex-row justify-content-between align-items-center">
+                        
+                              <button class="w-75 mx-auto btn btn-danger d-flex flex-row justify-content-evenly align-items-center">
+                                  <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M4.5 3V1.5a1 1 0 011-1h4a1 1 0 011 1V3M0 3.5h15m-13.5 0v10a1 1 0 001 1h10a1 1 0 001-1v-10M7.5 7v5m-3-3v3m6-3v3" stroke="currentColor"></path></svg>
+                                  Eliminar
+                              </button>
+                        </div>
+                      </td>
+                    </tr>
+                }
+            </tbody>
+            </table>
+        </div>
+</div>
+
+<!-- Modal to add -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Añadir Beneficiario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Form -->
+        <form method="Post" asp-controller="ClientUsers" asp-action="Index" class="w-25 p-2 rounded bg-white mx-auto shadow-sm">
+
+            <!-- Password field -->
+            <div class="w-100">
+                <label for="NumeroCuenta" class="form-label">Número de cuenta:</label>
+                <input value="" name="NumeroCuenta" class="form-control bg-whitegray" />
+            </div>
+
+            <!-- Buttons -->
+            <div class="w-100 my-2 mt-3">
+                <button class="btn btn-purple w-100"> Añadir </button>
+            </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

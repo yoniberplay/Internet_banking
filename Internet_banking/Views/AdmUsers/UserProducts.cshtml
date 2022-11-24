@@ -1,0 +1,160 @@
+﻿@model string;
+@{
+    ViewData["Title"] = "User Products";
+}
+
+<div class="w-100 bg-whitegray d-flex flex-column justify-content-start align-items-start" style="height: 82.4vh">
+   
+    <!-- this is the title -->
+    <section class="bg-purple w-100 p-2 d-flex flex-row justify-content-between align-items-center">
+        <div>
+            <h2 class="text-white m-0">Tablero / Administrar Usuarios / Actualizar Usuarios / Productos del Usuario </h2>
+            <small class="m-0 text-white">This section allows you to manage the user products </small>
+        </div>
+    </section>
+
+    <section class="w-100 h-100 bg-whitegray d-flex flex-row justify-content-center gap-2 align-items-center">
+        
+       <div class="w-50 h-75 table-responsive bg-white rounded">
+            <table class="table table">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">#</th>
+                  <th scope="col">GUID</th>
+                  <th scope="col">Tipo Producto</th>
+                  <th scope="col">Nivel</th>
+                  <th scope="col">Acción</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="align-middle text-center">
+                  <th scope="row">1</th>
+                  <td>402359874</td>
+                  <td>Cuenta Bancaria</td>
+                  <td>Principal</td>
+                  <td> 
+                      <div class="w-full d-flex flex-row justify-content-between align-items-center">
+                          <button class="mx-2 w-50 btn btn-purple d-flex flex-row justify-content-evenly align-items-center">
+                              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+                                  <path d="M.5 9.5l-.354-.354L0 9.293V9.5h.5zm9-9l.354-.354a.5.5 0 00-.708 0L9.5.5zm5 5l.354.354a.5.5 0 000-.708L14.5 5.5zm-9 9v.5h.207l.147-.146L5.5 14.5zm-5 0H0a.5.5 0 00.5.5v-.5zm.354-4.646l9-9-.708-.708-9 9 .708.708zm8.292-9l5 5 .708-.708-5-5-.708.708zm5 4.292l-9 9 .708.708 9-9-.708-.708zM5.5 14h-5v1h5v-1zm-4.5.5v-5H0v5h1zM6.146 3.854l5 5 .708-.708-5-5-.708.708zM8 15h7v-1H8v1z" fill="currentColor"></path>
+                              </svg>
+                              Editar
+                          </button>
+                          <button class="w-50 mx-2 btn btn-danger d-flex flex-row justify-content-evenly align-items-center">
+                              <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M4.5 3V1.5a1 1 0 011-1h4a1 1 0 011 1V3M0 3.5h15m-13.5 0v10a1 1 0 001 1h10a1 1 0 001-1v-10M7.5 7v5m-3-3v3m6-3v3" stroke="currentColor"></path></svg>
+                              Eliminar
+                          </button>
+                      </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+
+        <div class="ms-2 w-25 rounded overflow-hidden">
+            <div class="accordion accordion-flush w-100" id="accordionFlushExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    Tarjeta de Credito
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                      <form>
+                          <!-- This is the title -->
+                        <div class="text-center">
+                            <small>
+                                Para crear una, primero dime <span class="text-purple">La cantidad que se podrá usar de la misma.</span> 
+                            </small>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="my-3 w-100 d-flex flex-row justify-content-evenly align-content-center divider">
+                        </div>
+
+                        <!-- Limit of money field -->
+                        <div class="w-100">
+                            <label class="form-label text-sm-left">Límite monetario:</label>
+                            <input class="form-control bg-whitegray" />
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="w-100 my-2 mt-3">
+                            <button class="btn btn-purple w-100"> ¡Crear! </button>
+                        </div>
+                      </form>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Prestamo
+                  </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                      <form>
+                          <!-- This is the title -->
+                        <div class="text-center">
+                            <small>
+                                Para crearlo, primero... ¿Dime de cuánto dinero <span class="text-purple">estamos hablando</span>_ 
+                            </small>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="my-3 w-100 d-flex flex-row justify-content-evenly align-content-center divider">
+                        </div>
+
+                        <!-- Cash field -->
+                        <div class="w-100">
+                            <label class="form-label text-sm-left">Dinero para prestamo:</label>
+                            <input class="form-control bg-whitegray" />
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="w-100 my-2 mt-3">
+                            <button class="btn btn-purple w-100"> ¡Crear! </button>
+                        </div>
+                      </form>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                    Cuenta Bancaria
+                  </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                      <form>
+                          <!-- This is the title -->
+                        <div class="text-center">
+                            <small>
+                                Para hacer que pase <span class="text-purple"> solo haz clic sobre </span> el botón.
+                            </small>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="my-3 w-100 d-flex flex-row justify-content-evenly align-content-center divider">
+                        </div>
+
+                        <!-- Cash field -->
+                        <input hidden value="true" class="form-control bg-whitegray" />
+
+                        <!-- Buttons -->
+                        <div class="w-100 my-2 mt-3">
+                            <button class="btn btn-purple w-100"> ¡Crear! </button>
+                        </div>
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </section>
+
+</div>

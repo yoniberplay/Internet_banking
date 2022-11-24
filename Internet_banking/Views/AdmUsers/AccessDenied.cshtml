@@ -1,0 +1,13 @@
+﻿@using Internet_banking.Core.Application.ViewModels.User
+@model string
+@{
+    ViewData["Title"] = "Access Denied";
+}
+
+<div class="w-100 bg-whitegray d-flex flex-row justify-content-between align-items-center" style="height: 82.4vh">
+    <div class="alert bg-purple alert-dismissible fade show mx-auto" role="alert">
+        <h2 class="text-white">No tiene permiso para acceder a esta seccion - <a class="btn btn-light" asp-controller="Home" asp-action="Index">Volver</a></h2>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+

@@ -1,0 +1,65 @@
+﻿@using Internet_banking.Core.Application.ViewModels.PagoExpreso;
+@model SavePagoExpresoViewModelViewModel;
+@{
+    ViewData["Title"] = "Pago Expreso";
+    var MyCards = ViewBag.CreditCards;
+}
+
+<div class="w-100 bg-whitegray d-flex flex-column justify-content-start align-items-start" style="height: 82.4vh">
+   
+    <!-- this is the title -->
+    <section class="bg-purple w-100 p-2 d-flex flex-row justify-content-between align-items-center">
+        <div>
+            <h2 class="text-white m-0">Pagos / Expreso</h2>
+            <small class="m-0 text-white">Esta sección le permitirá a usted poder hacer pagos expresos.</small>
+        </div>
+    </section>
+
+    <section class="w-100 h-100 bg-whitegray d-flex flex-row justify-content-center gap-2 align-items-center">
+        
+       <!-- Form -->
+        <form method="POST" asp-controller="ClientUsers" asp-action="ConfirmFee" class="w-75 p-2 rounded bg-white mx-auto shadow-sm d-flex flex-row flex-wrap justify-content-evenly align-items-center">
+
+            <!-- -->
+            <div class="w-75 d-flex flex-row justify-content-center align-items-center">
+                <section class="w-auto p-4 rounded-circle bg-purple text-white d-flex flex-row justify-content-center align-items-center">
+                    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="60" height="60"><path d="M.5 5.5h14M2 9.5h6m2 0h3M.5 3.5v8a1 1 0 001 1h12a1 1 0 001-1v-8a1 1 0 00-1-1h-12a1 1 0 00-1 1z" stroke="currentColor"></path></svg>
+                </section>
+            </div>
+
+            <!-- Account Number field -->
+            <div class="w-25 mx-1">
+                <label asp-for="NumeroCuenta" class="form-label">Número de cuenta destino:</label>
+                <input asp-for="NumeroCuenta" class="form-control bg-whitegray" />
+            </div>
+
+            <!-- Mount field -->
+            <div class="w-25 mx-1">
+                <label asp-for="Monto" class="form-label">Monto:</label>
+                <input asp-for="Monto" step="any" class="form-control bg-whitegray" />
+            </div>
+
+            <!-- Credit Card field -->
+            <div class="w-25 mx-1">
+                <label asp-for="Cuenta" class="form-label text-sm-left">Tarjeta de Credito:</label>
+                <select asp-for="Cuenta"  class="form-control bg-whitegray">
+                    <option value="0">Seleccione #1</option>
+                    @if(MyCards != null){
+
+                        @foreach(var item in MyCards){
+                            <option value=""></option>
+                        }
+
+                    }
+                </select>
+            </div>
+
+            <!-- Buttons -->
+            <div class="w-100 my-2 mt-3 mb-1 d-flex flex-row justify-content-evenly align-items-center">
+                <button class="btn btn-purple w-25"> ¡Hacer Pago! </button>
+            </div>
+        </form> 
+
+    </section>
+
+</div>

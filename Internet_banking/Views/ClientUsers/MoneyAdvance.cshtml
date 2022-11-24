@@ -1,0 +1,65 @@
+﻿@model string;
+@{
+    ViewData["Title"] = "Avance de efectivo";
+    //important...
+    var MyCards = ViewBag.CreditCards;
+}
+
+<div class="w-100 bg-whitegray d-flex flex-column justify-content-start align-items-start" style="height: 82.4vh">
+   
+    <!-- this is the title -->
+    <section class="bg-purple w-100 p-2 d-flex flex-row justify-content-between align-items-center">
+        <div>
+            <h2 class="text-white m-0">Avance de efectivo</h2>
+            <small class="m-0 text-white">Esta sección le permitirá poder hacer avances de efectivo en otras cuentas.</small>
+        </div>
+    </section>
+
+    <section class="w-100 h-100 bg-whitegray d-flex flex-row justify-content-center gap-2 align-items-center">
+        
+       <!-- Form -->
+        <form class="w-75 p-2 rounded bg-white mx-auto shadow-sm d-flex flex-row flex-wrap justify-content-evenly align-items-center">
+
+            <!-- -->
+            <div class="w-75 d-flex flex-row justify-content-center align-items-center">
+                <section class="w-auto p-4 rounded-circle bg-purple text-white d-flex flex-row justify-content-center align-items-center">
+                    <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" width="60" height="60"><path d="M0 12.5h15m-15 2h15M2.5 4V2.5H4m7 0h1.5V4m-10 3v1.5H4m7 0h1.5V7m-5 .5a2 2 0 110-4 2 2 0 010 4zm-6-7h12a1 1 0 011 1v8a1 1 0 01-1 1h-12a1 1 0 01-1-1v-8a1 1 0 011-1z" stroke="currentColor"></path></svg>
+                </section>
+            </div>
+
+            <!-- Credit Card field -->
+            <div class="w-25 mx-1">
+                <label class="form-label text-sm-left">Tarjeta de Credito:</label>
+                <select class="form-control bg-whitegray">
+                    <option value="0">Seleccione #1</option>
+                    @if(MyCards != null){
+
+                        @foreach(var item in MyCards){
+                            <option value=""></option>
+                        }
+
+                    }
+                </select>
+            </div>
+
+            <!-- Save Money field -->
+            <div class="w-25 mx-1">
+                <label class="form-label">Cuenta de ahorro:</label>
+                <input class="form-control bg-whitegray" />
+            </div>
+
+            <!-- Advance field -->
+            <div class="w-25 mx-1">
+                <label class="form-label">Avance de efectivo:</label>
+                <input step="any" class="form-control bg-whitegray" />
+            </div>
+
+            <!-- Buttons -->
+            <div class="w-100 my-2 mt-3 mb-1 d-flex flex-row justify-content-evenly align-items-center">
+                <button class="btn btn-purple w-25"> ¡Hacer avance! </button>
+            </div>
+        </form> 
+
+    </section>
+
+</div>
