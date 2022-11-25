@@ -33,9 +33,20 @@ namespace WebApp.Internet_banking.Controllers
             }
 
             AuthenticationResponse userVm = await _userService.LoginAsync(vm);
+
+
+           
             if (userVm != null && userVm.HasError != true)
             {
                 HttpContext.Session.Set<AuthenticationResponse>("user", userVm);
+
+                if (userVm.Roles.Contains("Admin"))
+                {
+                    return RedirectToRoute(new { controller = "Home", action = "IndexAdmin" });
+                }
+
+
+
                 return RedirectToRoute(new { controller = "Home", action = "Index" });
             }
             else
