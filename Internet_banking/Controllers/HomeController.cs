@@ -18,14 +18,12 @@ namespace Internet_banking.Controllers
         public IActionResult Index()
         {
             //ViewBag.Rol = false; //responde a si es admin
-<<<<<<< HEAD
-=======
+
             return View();
         }
 
         public IActionResult IndexAdmin()
         {
->>>>>>> e29af576b6c549bd7a82acc2aad559b73dbcbf77
             return View();
         }
 
