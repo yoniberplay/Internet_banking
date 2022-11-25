@@ -322,25 +322,27 @@ namespace Internet_banking.Infrastucture.Identity.Services
         {
             var user = await _userManager.FindByEmailAsync(email);
             int numerocuenta = _icuentaRepository.generarcuenta();
+           
             Cuenta addcount = new()
             {
                 Balance = monto,
                 EsPrincipal = true,
-                Tipo="Ahorro",
-                UserId=user.Id,
-                NumeroCuenta= numerocuenta
+                Tipo = "Ahorro",
+                UserId = user.Id,
+                NumeroCuenta = numerocuenta
             };
 
             await _icuentaRepository.AddAsync(addcount);
             SaveUserViewModel temp = new()
             {
                 Email = user.Email,
-                Cedula=user.Cedula,
-                FirstName=user.FirstName,
+                Cedula = user.Cedula,
+                FirstName = user.FirstName,
                 LastName = user.LastName,
-                Phone=user.PhoneNumber,
+                Phone = user.PhoneNumber,
                 Username = user.UserName,
             };
+
 
 
 

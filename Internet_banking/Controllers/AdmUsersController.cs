@@ -14,9 +14,20 @@ namespace Internet_banking.Controllers
     {
         private readonly IUserService _userService;
         private readonly ILogger<AdmUsersController> _logger;
+        private readonly IAccountService _accountService;
+        private readonly ITransaccionService _transactionService;
+        private readonly IPrestamoService _loanService;
+        private readonly ITarjetaCreditoService _creditCardService;
+        private readonly IBeneficiariosService _productClient;
 
-        public AdmUsersController(IUserService userService, ILogger<AdmUsersController> logger)
+        public AdmUsersController(IUserService userService, ILogger<AdmUsersController> logger, IAccountService accountService, ITransaccionService transactionService,
+           IPrestamoService loanService, ITarjetaCreditoService creditCardService, IBeneficiariosService productClient)
         {
+            _accountService = accountService;
+            _transactionService = transactionService;
+            _loanService = loanService;
+            _creditCardService = creditCardService;
+            _productClient = productClient;
             _userService = userService;
             _logger = logger;
         }
@@ -24,6 +35,7 @@ namespace Internet_banking.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.listausuarios = await _userService.GetAllUser();
+            
 
             return View();
 
@@ -49,6 +61,8 @@ namespace Internet_banking.Controllers
         {
             if (!ModelState.IsValid)
             {
+                vm.Error = ModelState.ToString();
+                vm.HasError = true;
                 return View(vm);
             }
             var origin = Request.Headers["origin"];
@@ -59,14 +73,8 @@ namespace Internet_banking.Controllers
                 vm.Error = response.Error;
                 return View(vm);
             }
-            await _userService.createCuentaPrincipal(vm.Email,vm.Monto);
 
-
-
-
-
-
-
+            await _userService.CreateCuentaPrincipal(vm.Email,vm.Monto);
             return RedirectToRoute(new { controller = "AdmUsers", action = "Index" });
         }
 

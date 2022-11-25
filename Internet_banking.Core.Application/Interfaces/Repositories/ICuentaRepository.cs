@@ -11,6 +11,6 @@ namespace Internet_banking.Core.Application.Interfaces.Repositories
     public interface ICuentaRepository : IGenericRepository<Cuenta>
     {
         Task UpdateAsync(SaveCuentaViewModel saveCuentaViewModel, int accountNumber);
-        Task <int> generarcuenta();
+        int generarcuenta();
     }
 }

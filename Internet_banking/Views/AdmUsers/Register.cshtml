@@ -36,7 +36,7 @@
         </div>
 
         <div class="w-25 mx-1">
-            <label asp-for="Cedula" class="form-label text-sm-left">Apellido: </label>
+            <label asp-for="Cedula" class="form-label text-sm-left">Cedula: </label>
             <input asp-for="Cedula" class="form-control bg-whitegray" required/>
             <span asp-validation-for="Cedula" class="text-purple"></span>
         </div>
@@ -75,23 +75,23 @@
 
         <div class="w-25 mx-1">
             <label class="form-label">Tipo Usuario:</label>
-            <select class="form-select" required>
-                <option value="0">Seleccione #1</option>
-                <option value="1">Cliente</option>
-                <option value="2">Administrador</option>
+            <select class="form-select" asp-for="Tipo" required>
+                <option  value=1>Cliente</option>
+                <option value=2>Administrador</option>
             </select>
         </div>
 
         <!-- Initial Mount field -->
         <div class="w-25 mx-1">
             <label class="form-label">Monto Inicial</label>
-            <input type="number" class="form-control bg-whitegray" required/>
+            <input asp-for="Monto" type="number" class="form-control bg-whitegray" required />
+            @*<input type="number" class="form-control bg-whitegray" required/>*@
         </div>
        
 
         <div class="w-100 mx-1 text-center mt-3 mb-2">
             <button type="submit" class="btn btn-purple">Guardar</button>
-            <a asp-controller="User" asp-action="Index" class="btn btn-light">Volver</a>
+            <a asp-controller="AdmUsers" asp-action="Index" class="btn btn-light">Volver</a>
         </div>
 
     </form>

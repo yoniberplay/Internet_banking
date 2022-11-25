@@ -17,7 +17,7 @@ namespace Internet_banking.Infrastructure.Persistence.Repository
             _dbContext = dbContext;
         }
 
-        public Task<int> generarcuenta()
+        public int generarcuenta()
         {
             List<int> Numbers = new List<int>();
             Numbers.Add(9); 
@@ -26,12 +26,16 @@ namespace Internet_banking.Infrastructure.Persistence.Repository
 
             Random rnd = new Random();
 
+            String numero = "960";
             for (int i = 0; i < 6; i++)
             {
-                Numbers.Add(rnd.Next(1,9));
+                numero += Convert.ToString(rnd.Next(0, 9));
+
             }
 
-            int num = Numbers.ToString();
+            int numVal = Int32.Parse(numero);
+
+            return numVal;
         }
 
         public Task UpdateAsync(SaveCuentaViewModel saveCuentaViewModel, int accountNumber)
