@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace Internet_banking.Core.Application.ViewModels.Prestamo
 {
-    public class SavePrestamoViewModel : AuditableBaseViewModel
+    public class SavePrestamoViewModel
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Especifique el id del usuario que tomara el prestamos")]
         [DataType(DataType.Text)]
         public string UserId { get; set; }

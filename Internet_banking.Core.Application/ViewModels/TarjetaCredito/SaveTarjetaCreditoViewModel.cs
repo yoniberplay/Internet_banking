@@ -9,6 +9,8 @@ namespace Internet_banking.Core.Application.ViewModels.TarjetaCredito
 {
     public class SaveTarjetaCreditoViewModel
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Especifique el id del usuario")]
         [DataType(DataType.Text)]
         public string UserId { get; set; }

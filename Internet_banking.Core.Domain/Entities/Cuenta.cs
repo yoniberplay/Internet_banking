@@ -13,9 +13,10 @@ namespace Internet_banking.Core.Domain.Entities
         public string UserId { get; set; }
         public int NumeroCuenta { get; set; }
         public string Tipo { get; set; }
-        public bool IsPrincipal { get; set; }
+        public bool EsPrincipal { get; set; }
+        public int BeneficiarioId { get; set; }
 
         //Navigation Property
-        public ICollection<Beneficiarios> beneficiarios { get; set; }
+        public Beneficiarios Beneficiario { get; set; }
     }
 }

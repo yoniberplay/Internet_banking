@@ -9,12 +9,16 @@ namespace Internet_banking.Core.Application.ViewModels.Transaccion
 {
     public class SaveTransaccionViewModel
     {
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Seleccion la cuenta de origen")]
         public int Origen { get; set; }
 
         [Required(ErrorMessage = "Seleccion la cuenta de destino")]
         public int Destino { get; set; }
+
+        public int IdUsuarioOrigen { get; set; }
+        public int IdUsuarioDestinatario { get; set; }
 
         [Required(ErrorMessage = "Especifique un monto valido")]
         [DataType(DataType.Currency)]

@@ -17,11 +17,11 @@ namespace Internet_banking.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Rol = false; //responde a si es admin
+            //ViewBag.Rol = false; //responde a si es admin
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult IndexAdmin()
         {
             return View();
         }

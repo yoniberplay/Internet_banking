@@ -12,8 +12,6 @@ namespace Internet_banking.Core.Domain.Entities
         public String? Text { get; set; }
         public int UserId { get; set; }
         public int PostId { get; set; }
-
-
         public Post? Post { get; set; }
     }
 }

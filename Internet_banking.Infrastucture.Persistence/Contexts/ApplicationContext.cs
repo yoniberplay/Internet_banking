@@ -80,16 +80,12 @@ namespace Internet_banking.Infrastructure.Persistence.Contexts
 
             #region "Relationships"
 
-
-            //modelBuilder.Entity<Post>()
-            //    .HasMany<Comments>(a => a.Comments)
-            //    .WithOne(c => c.Post)
-            //    .HasForeignKey(f => f.PostId)
-            //    .OnDelete(DeleteBehavior.NoAction);
-
-
-
-
+            // added
+            modelBuilder.Entity<Beneficiarios>()
+                .HasMany<Producto>(x => x.Productos)
+                .WithOne(x => x.Beneficiario)
+                .HasForeignKey(x => x.IdUsuario)
+                .OnDelete(DeleteBehavior.Cascade);
             #endregion
 
             #region "Property configurations"

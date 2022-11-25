@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace Internet_banking.Core.Application.ViewModels.PagoExpreso
 {
-    public class SavePagoExpresoViewModelViewModel
+    public class SavePagoExpresoViewModel
     {
+        public int Id { get; set; }
         [Required]
         // for numbers that need to start with a zero
         [RegularExpression("([0-9]+)", ErrorMessage = "Introduce un numero de cuenta valido")]
@@ -27,6 +28,5 @@ namespace Internet_banking.Core.Application.ViewModels.PagoExpreso
         public int Cuenta { get; set; }
 
         public int BeneficiarioId { get; set; }
-        public BeneficiariosViewModel Beneficiarios { get; set; }
     }
 }

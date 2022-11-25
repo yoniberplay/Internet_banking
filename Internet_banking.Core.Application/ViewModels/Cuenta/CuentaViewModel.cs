@@ -14,7 +14,7 @@ namespace Internet_banking.Core.Application.ViewModels.Cuenta
         public string UserId { get; set; }
         public int NumeroCuenta { get; set; }
         public string Tipo { get; set; }
-
-        public List<BeneficiariosViewModel> Beneficiarios { get; set; }
+        public int BeneficiarioId { get; set; }
+        public BeneficiariosViewModel Beneficiario { get; set; }
     }
 }

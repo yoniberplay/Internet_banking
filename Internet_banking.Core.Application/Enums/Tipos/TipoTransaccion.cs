@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Internet_banking.Core.Application.Enums
+namespace Internet_banking.Core.Application.Enums.Tipos
 {
-    public enum TipoCuenta
+    public enum TipoTransaccion
     {
-        Ahorro,
-        Corriente,
-        Credito
+        ATarjeta,
+        ACuentaBancaria
     }
 }

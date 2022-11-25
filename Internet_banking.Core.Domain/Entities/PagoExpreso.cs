@@ -12,6 +12,7 @@ namespace Internet_banking.Core.Domain.Entities
         public int NumeroCuenta { get; set; }
         public double Monto { get; set; }
         public int Cuenta { get; set; }
-        public Beneficiarios Beneficiarios { get; set; }
+        public int BeneficiarioId { get; set; }
+        public Beneficiarios? Beneficiarios { get; set; }
     }
 }
