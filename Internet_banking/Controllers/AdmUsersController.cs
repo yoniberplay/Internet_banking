@@ -28,7 +28,6 @@ namespace Internet_banking.Controllers
             return View();
 
         }
-
         public async Task<IActionResult> Desactivar(string id)
         {
             await _userService.DesactiveUser(id);
