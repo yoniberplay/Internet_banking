@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Internet_banking.Core.Application.Interfaces.Services
 {
-    public interface IPagoExpresoService :  IGenericService<SavePagoExpresoViewModelViewModel, PagoExpresoViewModel, PagoExpreso>
+    public interface IPagoExpresoService :  IGenericService<SavePagoExpresoViewModel, PagoExpresoViewModel, PagoExpreso>
     {
     }
 }

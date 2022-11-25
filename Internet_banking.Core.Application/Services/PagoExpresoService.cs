@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Internet_banking.Core.Application.Services
 {
-    public class PagoExpresoService : GenericService<SavePagoExpresoViewModelViewModel, PagoExpresoViewModel, PagoExpreso>
+    public class PagoExpresoService : GenericService<SavePagoExpresoViewModel, PagoExpresoViewModel, PagoExpreso>
     {
         private readonly IPagoExpresoRepository _pagoExpreso;
         private readonly IBeneficiariosRepository _beneficiario;
