@@ -23,9 +23,9 @@ namespace Internet_banking.Core.Application.ViewModels.User
         [DataType(DataType.Text)]
         public String Cedula { get; set; }
 
-        [Required(ErrorMessage = "Debe colocar la Cedula")]
-        [DataType(DataType.Text)]
-        public string NumberId { get; set; }
+        //[Required(ErrorMessage = "Debe colocar la Cedula")]
+        //[DataType(DataType.Text)]
+        //public string NumberId { get; set; }
 
         [Required(ErrorMessage = "Debe colocar un nombre de usuario")]
         [DataType(DataType.Text)]
@@ -52,6 +52,8 @@ namespace Internet_banking.Core.Application.ViewModels.User
         [DataType(DataType.Text)]
         public int Tipo { get; set; }
 
+        [Required(ErrorMessage = "Ingrese Monto")]
+        [DataType(DataType.Text)]
         public double Monto { get; set; } = 0.00;
 
         public bool HasError { get; set; }

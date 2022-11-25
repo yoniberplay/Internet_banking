@@ -59,6 +59,14 @@ namespace Internet_banking.Controllers
                 vm.Error = response.Error;
                 return View(vm);
             }
+            await _userService.createCuentaPrincipal(vm.Email,vm.Monto);
+
+
+
+
+
+
+
             return RedirectToRoute(new { controller = "AdmUsers", action = "Index" });
         }
 

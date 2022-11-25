@@ -16,6 +16,8 @@ namespace Internet_banking.Core.Application.Interfaces.Services
         Task<SaveUserViewModel> GetUser(String Id);
         Task DesactiveUser(string id);
         Task ActiveUser(string id);
+        Task<SaveUserViewModel> CreateCuentaPrincipal(string email,double monto); 
+
 
     }
 }

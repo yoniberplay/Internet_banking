@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Internet_banking.Core.Application\Internet_banking.Core.Application.csproj" />
+    <ProjectReference Include="..\Internet_banking.Infrastucture.Persistence\Internet_banking.Infrastucture.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

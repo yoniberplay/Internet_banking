@@ -11,6 +11,8 @@ using Internet_banking.Infrastucture.Identity.Entities;
 using Microsoft.AspNetCore.Identity;
 using Internet_banking.Infrastucture.Identity.Services;
 using Internet_banking.Core.Application.Interfaces.Services;
+using Internet_banking.Core.Application.Interfaces.Repositories;
+using Internet_banking.Infrastructure.Persistence.Repository;
 
 namespace Internet_banking.Infrastructure.Identity
 {
@@ -49,6 +51,7 @@ namespace Internet_banking.Infrastructure.Identity
 
             #region services
             services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<ICuentaRepository, CuentaRepository>();
             #endregion
         }
     }

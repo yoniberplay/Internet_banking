@@ -14,7 +14,7 @@
         </div>
     }
                     
-    <form method="post" asp-controller="User" asp-action="Register" class="w-75 p-2 rounded bg-white mx-auto shadow-sm d-flex flex-row flex-wrap justify-content-evenly align-items-center">
+    <form method="post" asp-controller="AdmUsers" asp-action="Register" class="w-75 p-2 rounded bg-white mx-auto shadow-sm d-flex flex-row flex-wrap justify-content-evenly align-items-center">
                
         <div class="w-75 d-flex flex-column justify-content-center align-items-center">
             <section class="w-auto p-4 rounded-circle bg-purple text-white d-flex flex-row justify-content-center align-items-center">
@@ -33,6 +33,12 @@
             <label asp-for="LastName" class="form-label text-sm-left">Apellido: </label>
             <input asp-for="LastName" class="form-control bg-whitegray" required/>
             <span asp-validation-for="LastName" class="text-purple"></span>
+        </div>
+
+        <div class="w-25 mx-1">
+            <label asp-for="Cedula" class="form-label text-sm-left">Apellido: </label>
+            <input asp-for="Cedula" class="form-control bg-whitegray" required/>
+            <span asp-validation-for="Cedula" class="text-purple"></span>
         </div>
                
         <div class="w-25 mx-1">                
@@ -64,6 +70,8 @@
             <input asp-for="Email" class="form-control bg-whitegray" required />
             <span asp-validation-for="Email" class="text-purple"></span>
         </div>
+
+
 
         <div class="w-25 mx-1">
             <label class="form-label">Tipo Usuario:</label>

@@ -82,5 +82,11 @@ namespace Internet_banking.Core.Application.Services
         {
             return await _accountService.GetUser(Id);
         }
+
+        public async Task<SaveUserViewModel> CreateCuentaPrincipal(string email, double monto)
+        {
+
+            return await _accountService.CreateCuentaPrincipal(email,monto);
+        }
     }
 }
