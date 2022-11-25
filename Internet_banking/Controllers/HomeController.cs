@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 namespace Internet_banking.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Basic,Admin")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -17,7 +17,12 @@ namespace Internet_banking.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Rol = false; //responde a si es admin
+            //ViewBag.Rol = false; //responde a si es admin
+            return View();
+        }
+
+        public IActionResult IndexAdmin()
+        {
             return View();
         }
 

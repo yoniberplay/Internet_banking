@@ -6,8 +6,8 @@
 
 <div class="w-100 bg-whitegray d-flex flex-column justify-content-start align-items-start" style="height: 82.4vh">
    
-    @*@if (isUser)
-    {*@
+@*    @if (isUser)
+    {
         <section class="bg-purple w-100 p-2 d-flex flex-row justify-content-between align-items-center">
             <div>
                 <h2 class="text-white m-0">Lista de Productos</h2>
@@ -33,9 +33,9 @@
               </tbody>
             </table>
         </div>
-    @*} 
+    } 
     else
-    {
+    {*@
         <!-- this is the title -->
         <section class="bg-purple w-100 p-2 d-flex flex-row justify-content-between align-items-center">
             <div>
@@ -176,6 +176,6 @@
             </div>
 
         </section>
-    }*@
+    @*}*@
 
 </div>
